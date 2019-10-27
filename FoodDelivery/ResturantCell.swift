@@ -9,21 +9,25 @@
 import UIKit
 
 class ResturantCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var FoodGenreCollectionView: UICollectionView!
+    var categories = ["American","Crep","Burgeer"]
     override func awakeFromNib() {
         super.awakeFromNib()
         FoodGenreCollectionView.delegate = self
         FoodGenreCollectionView.dataSource = self
         FoodGenreCollectionView.registerCellNib(cellClass: GenreCell.self)
         selectionStyle = .none
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        //MARK :-
+        // for enable self sizeing if items more than 2
+        if categories.count > 2 {
+          collectionViewLayout.estimatedItemSize = CGSize(width: 1,height: 1)
+        }
+       
 
-        // Configure the view for the selected state
     }
     
 }
@@ -32,15 +36,16 @@ extension ResturantCell: UICollectionViewDataSource, UICollectionViewDelegateFlo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(indexPath: indexPath) as GenreCell
-        
+        cell.categoryNameLabel.text = categories[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 70, height: 15)
+        //when items is 2 or less
+         return CGSize(width: (collectionView.frame.size.width - 40)  / 2, height: 25)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return categories.count
     }
 }

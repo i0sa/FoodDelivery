@@ -27,6 +27,7 @@
 		037656B3236227440009DD42 /* ResturantsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037656B1236227440009DD42 /* ResturantsHeaderCell.xib */; };
 		037656B623622EDF0009DD42 /* ResturantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037656B423622EDF0009DD42 /* ResturantCell.swift */; };
 		037656B723622EDF0009DD42 /* ResturantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037656B523622EDF0009DD42 /* ResturantCell.xib */; };
+		FAAEBE4C2365B8540052C767 /* DynamicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEBE4B2365B8540052C767 /* DynamicCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		037656B1236227440009DD42 /* ResturantsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResturantsHeaderCell.xib; sourceTree = "<group>"; };
 		037656B423622EDF0009DD42 /* ResturantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantCell.swift; sourceTree = "<group>"; };
 		037656B523622EDF0009DD42 /* ResturantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResturantCell.xib; sourceTree = "<group>"; };
+		FAAEBE4B2365B8540052C767 /* DynamicCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				03765692236214880009DD42 /* Assets.xcassets */,
 				03765694236214880009DD42 /* LaunchScreen.storyboard */,
 				03765697236214880009DD42 /* Info.plist */,
+				FAAEBE4B2365B8540052C767 /* DynamicCollectionView.swift */,
 			);
 			path = FoodDelivery;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				037656A623621AF60009DD42 /* ViewController+Delegates.swift in Sources */,
 				0365D07D23623927005729FE /* GenreCell.swift in Sources */,
 				037656B623622EDF0009DD42 /* ResturantCell.swift in Sources */,
+				FAAEBE4C2365B8540052C767 /* DynamicCollectionView.swift in Sources */,
 				0376569F236216AC0009DD42 /* CityHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
