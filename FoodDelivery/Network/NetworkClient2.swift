@@ -10,16 +10,17 @@ import Foundation
 import Alamofire
 
 
-class NetworkClient {
-    
+protocol NetworkClientProtocol {
     typealias onSuccess<T> = ( (T) -> ())
     typealias onFailure = ((_ error: Error) -> ())
+
+    func performRequest<T>(_ object: T.Type, router: APIRouter, success: @escaping onSuccess<T>, failure: @escaping onFailure) where T:Decodable
+}
+
+class NetworkClientNew: NetworkClientProtocol {
     
-    init() {
-        
-    }
     
-    static func performRequest<T>(_ object: T.Type, router: APIRouter, success: @escaping onSuccess<T>, failure: @escaping onFailure) where T:Decodable {
+    func performRequest<T>(_ object: T.Type, router: APIRouter, success: @escaping onSuccess<T>, failure: @escaping onFailure) where T:Decodable {
         Alamofire.request(router).responseJSON { (response) in
             // ALAMOFIRE ERROR CHECK
 //            response.response?.statusCode

@@ -11,7 +11,7 @@ import UIKit
 extension ViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if let selectedIndex = tableView.indexPathForRow(at: location) {
-            let item = self.Resturants?[selectedIndex.row]
+            let item = viewModel.Resturants?[selectedIndex.row]
 //            if let image = item? {
                 let view = self.storyboard?.instantiateViewController(withIdentifier: "PeekAndPopViewController") as! PeekAndPopViewController
                 view.data = item

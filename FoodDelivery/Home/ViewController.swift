@@ -11,10 +11,12 @@ import Alamofire
 import Toast_Swift
 
 class ViewController: UIViewController {
-    var Resturants: [Resturant]?
-    var data: Home?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tabBar: CustomTabBar!
+    
+    lazy var viewModel: ViewControllerViewModel = {
+       return ViewControllerViewModel()
+    }()
     
     public enum HomeSections: CaseIterable {
         case topItems
@@ -23,7 +25,6 @@ class ViewController: UIViewController {
 
     
     func displayError(_ text: String){
-        
         let alert = UIAlertController(title: text, message: text, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "done", style: .default, handler: nil)
         alert.addAction(cancel)
@@ -32,17 +33,42 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         registerCells()
         tabBar.delegate = self
-        getTopData()
+        configure()
         if(traitCollection.forceTouchCapability == .available){
             registerForPreviewing(with: self, sourceView: tableView)
         }
 
         // Do any additional setup after loading the view.
+    }
+    
+    func configure(){
+        viewModel.displayError = { [weak self] title in
+            self?.displayError(title)
+        }
+        viewModel.didGetData = { [weak self] in
+            self?.tableView.reloadData()
+            if let cell = self?.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? RestTypesCell{
+                cell.collectionView.reloadData()
+            }
+
+        }
+        viewModel.didGetResturantsData = { [weak self] in
+            self?.tableView.reloadSections(IndexSet(integersIn: 1...1), with: .left)
+        }
+        
+        viewModel.showLoading = { [weak self] in
+            self?.view.makeToastActivity(.center)
+        }
+        
+        viewModel.hideLoading = { [weak self] in
+            self?.view.hideToastActivity()
+        }
+        
     }
     
     func registerCells(){
@@ -54,55 +80,11 @@ class ViewController: UIViewController {
     }
     
     
-    func getTopData(){
-        self.view.makeToastActivity(.center)
-        NetworkClient.performRequest(Home.self, router: .Home, success: { (models) in
-            self.view.hideToastActivity()
-            self.data = models
-            self.loadFirstData()
-            self.tableView.reloadData()
-        }) { (error) in
-            self.view.hideToastActivity()
-            guard let error = error as? BaseError else { return }
-            if case .other(let error) = error {
-                //                self.displayError(error )
-            } else {
-                //                self.displayError(error.MyDescription)
-            }
-            
-        }
-    }
-    
-    func loadFirstData(){
-        if let firstItem = self.data?.types?.first {
-            self.getResturantData(for: firstItem)
-            self.data?.types?[0].isSelected = true
-//            firstItem.isSelected = true
-            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? RestTypesCell{
-                cell.collectionView.reloadData()
-            }
-        }
-
-    }
-
-    
     func didSelectItem(_ item: CircleModel){
-        getResturantData(for: item)
+//        getResturantData(for: item)
+        viewModel.didSelectResturant(item)
     }
-    
-    private func getResturantData(for restType: CircleModel){
-        guard let id = restType.id else { return }
-        self.view.makeToastActivity(.center)
-        NetworkClient.performRequest([Resturant].self, router: .RestData(id: id), success: { (models) in
-            self.view.hideToastActivity()
-            self.Resturants = models
-            self.tableView.reloadSections(IndexSet(integersIn: 1...1), with: .left)
-            print(models)
-        }) { (error) in
-            self.view.hideToastActivity()
-            self.displayError(error.localizedDescription)
-        }
-    }
+
     
     
     

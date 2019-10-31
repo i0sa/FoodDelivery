@@ -16,6 +16,8 @@
 		0319632F2368BAFC00EBEB10 /* ResturantFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0319632E2368BAFC00EBEB10 /* ResturantFood.swift */; };
 		031963322368BFDB00EBEB10 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031963312368BFDB00EBEB10 /* CartManager.swift */; };
 		031963342368D02400EBEB10 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031963332368D02400EBEB10 /* BaseTableViewCell.swift */; };
+		03465F5A236B69A500896BEA /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03465F59236B69A500896BEA /* ViewControllerViewModel.swift */; };
+		03465F5C236B6FD400896BEA /* NetworkClient2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03465F5B236B6FD400896BEA /* NetworkClient2.swift */; };
 		035599B32366087F001851CF /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035599B22366087F001851CF /* CustomTabBar.swift */; };
 		035599B523660888001851CF /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 035599B423660888001851CF /* CustomTabBar.xib */; };
 		035599B72366104A001851CF /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035599B623661049001851CF /* UIView+Extensions.swift */; };
@@ -65,6 +67,8 @@
 		0319632E2368BAFC00EBEB10 /* ResturantFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResturantFood.swift; sourceTree = "<group>"; };
 		031963312368BFDB00EBEB10 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		031963332368D02400EBEB10 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		03465F59236B69A500896BEA /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		03465F5B236B6FD400896BEA /* NetworkClient2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient2.swift; sourceTree = "<group>"; };
 		035599B22366087F001851CF /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		035599B423660888001851CF /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		035599B623661049001851CF /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				0376568D236214870009DD42 /* ViewController.swift */,
+				03465F59236B69A500896BEA /* ViewControllerViewModel.swift */,
 				037656A523621AF60009DD42 /* ViewController+Delegates.swift */,
 				035599BA2366152D001851CF /* ViewController+3DTouch.swift */,
 				0319632A2368B2D000EBEB10 /* ViewController+TabBar.swift */,
@@ -247,6 +252,7 @@
 				03E9DD1F23675CF3001E2346 /* Constants.swift */,
 				03E9DD2123675D73001E2346 /* APIRouter.swift */,
 				03E9DD2323676255001E2346 /* NetworkClient.swift */,
+				03465F5B236B6FD400896BEA /* NetworkClient2.swift */,
 				03AD2138236767E10030DD18 /* AppModel.swift */,
 				03AD2136236766560030DD18 /* BaseError.swift */,
 			);
@@ -422,6 +428,7 @@
 				030257F323662FE500A84312 /* QuantityView.swift in Sources */,
 				037656AF236221410009DD42 /* Inspectables.swift in Sources */,
 				035599B9236611C2001851CF /* AnimationsFactory.swift in Sources */,
+				03465F5C236B6FD400896BEA /* NetworkClient2.swift in Sources */,
 				037656B2236227440009DD42 /* ResturantsHeaderCell.swift in Sources */,
 				03E9DD2223675D73001E2346 /* APIRouter.swift in Sources */,
 				035599B32366087F001851CF /* CustomTabBar.swift in Sources */,
@@ -429,6 +436,7 @@
 				037656AC23621EAC0009DD42 /* RestTypeCell.swift in Sources */,
 				0376568C236214870009DD42 /* AppDelegate.swift in Sources */,
 				0319632F2368BAFC00EBEB10 /* ResturantFood.swift in Sources */,
+				03465F5A236B69A500896BEA /* ViewControllerViewModel.swift in Sources */,
 				03AD2139236767E10030DD18 /* AppModel.swift in Sources */,
 				03E9DD2023675CF3001E2346 /* Constants.swift in Sources */,
 				03AD213B236781360030DD18 /* Resturant.swift in Sources */,

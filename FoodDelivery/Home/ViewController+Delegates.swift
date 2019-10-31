@@ -31,14 +31,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .topItems:
             return 60
         case .restData:
-        return self.Resturants != nil ? 100 : 0
+        return viewModel.Resturants != nil ? 100 : 0
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = HomeSections.allCases[indexPath.section]
         if case .restData = section {
-            let item = self.Resturants?[indexPath.row]
+            let item = viewModel.Resturants?[indexPath.row]
             let view = self.storyboard?.instantiateViewController(withIdentifier: "ResturantViewController") as! ResturantViewController
             view.data = item
             self.navigationController?.pushViewController(view, animated: true)
@@ -49,7 +49,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let section = HomeSections.allCases[indexPath.section]
         switch section {
         case .topItems:
-            let item = self.data?.types
+            let item = viewModel.data?.types
             let cell = tableView.dequeue() as RestTypesCell
             cell.items = item
             
@@ -58,7 +58,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         case .restData:
-            let item = self.Resturants?[indexPath.row]
+            let item = viewModel.Resturants?[indexPath.row]
             let cell = tableView.dequeue() as ResturantCell
             cell.configure(item)
             return cell
@@ -72,7 +72,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .topItems:
             return 1
         case .restData:
-            return Resturants?.count ?? 0
+            return viewModel.Resturants?.count ?? 0
         }
     }
     
